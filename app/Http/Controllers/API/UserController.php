@@ -74,7 +74,7 @@ class UserController extends Controller
                 'houseNumber' => $request->houseNumber,
                 'phoneNumber' => $request->phoneNumber,
                 'city' => $request->city,
-                'password' => $request->Hash::make($request->password),
+                'password' => Hash::make($request->password),
             ]);
 
             // Memanggil Data Usernya

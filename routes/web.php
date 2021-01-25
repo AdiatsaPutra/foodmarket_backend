@@ -26,6 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+// TODO: Masukkan Ke Konfigurasi VTWEB Atau SnapJS
 // Midtrans 
 Route::get('midtrans/success', [MidtransController::class, 'success']);
 Route::get('midtrans/unfinished', [MidtransController::class, 'unfinished']);
