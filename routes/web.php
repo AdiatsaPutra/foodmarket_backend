@@ -15,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('dashboard');
-});
+// Homepage
+// Route::get('/', function () {
+//     return redirect()->route('dashboard');
+// });
 
+// Dashboard
 Route::prefix('dashboard')
     ->middleware(['auth:sanctum', 'admin'])
     ->group(function () {
