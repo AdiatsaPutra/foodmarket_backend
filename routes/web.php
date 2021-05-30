@@ -22,12 +22,12 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-Route::resource('users', UserController::class);
 // Dashboard
-// Route::prefix('dashboard')
+Route::prefix('dashboard')
+    ->group(function () {
+        Route::resource('users', UserController::class);
+    });
 //     ->middleware(['auth:sanctum', 'admin'])
-//     ->group(function () {
-//     });
 
 // TODO: Masukkan Ke Konfigurasi VTWEB Atau SnapJS
 // Midtrans 
