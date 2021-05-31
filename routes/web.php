@@ -17,17 +17,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Homepage
-// Route::get('/', function () {
-//     return redirect()->route('dashboard');
-// });
+Route::get('/', function () {
+    return redirect()->route('dashboard');
+});
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 // Dashboard
 Route::prefix('dashboard')
+    ->middleware(['auth:sanctum', 'admin'])
     ->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('users', UserController::class);
     });
-//     ->middleware(['auth:sanctum', 'admin'])
 
 // TODO: Masukkan Ke Konfigurasi VTWEB Atau SnapJS
 // Midtrans 
