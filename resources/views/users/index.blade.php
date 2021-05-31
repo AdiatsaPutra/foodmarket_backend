@@ -10,7 +10,7 @@
             <div class="mb-10">
                 <a href="{{ route('users.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-5 rounded">Create User</a>
             </div>
-            <div class="bg-white">
+            <div class="p-5 bg-white">
                 <table class="table-auto w-full">
                     <thead>
                         <tr>
