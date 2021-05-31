@@ -33,7 +33,7 @@
                                     <form action="{{ route('users.destroy', $item->id) }}" method="post" class="inline-block">
                                         @method('delete')
                                         @csrf
-                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-5 rounded">Hapus</button>
+                                        <button onclick="return confirm('Anda yakin akan menghapus data ini?')" type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-5 rounded">Hapus</button>
                                     </form>
                                 </td>
                             </tr>
