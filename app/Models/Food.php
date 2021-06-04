@@ -14,7 +14,7 @@ class Food extends Model
 
     protected $fillable = [
         'name', 'description', 'ingredients',
-        'price', 'rate', 'types', 'picturePath'
+        'price', 'rate', 'type', 'picturePath'
     ];
 
     // Mengubah(Asesor) Field Yang Sudah Ada

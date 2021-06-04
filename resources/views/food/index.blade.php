@@ -29,7 +29,7 @@
                                 <td class="border px-4 py-6">{{ $item->name }}</td>
                                 <td class="border px-4 py-6">{{ number_format($item->price) }}</td>
                                 <td class="border px-4 py-6">{{ $item->rate }}</td>
-                                <td class="border px-4 py-6">{{ $item->types }}</td>
+                                <td class="border px-4 py-6">{{ $item->type }}</td>
                                 <td class="border px-4 py-6">
                                     <a href="{{ route('food.edit', $item->id) }}" class="inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-5 rounded">Edit</a>
                                     <form action="{{ route('food.destroy', $item->id) }}" method="post" class="inline-block">

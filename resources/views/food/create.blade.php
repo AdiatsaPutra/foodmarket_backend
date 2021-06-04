@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {!! __('Users &raquo; Create') !!}
+            {!! __('Food &raquo; Create') !!}
         </h2>
     </x-slot>
 
@@ -19,77 +19,56 @@
                     </div>
                 </div>
             @endif
-            <form action="{{ route('users.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('food.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="col-span-6 sm:col-span-3 my-5">
-                    <label for="name" class="block text-lg font-medium text-gray-700">First name</label>
+                    <label for="name" class="block text-lg font-medium text-gray-700">Nama</label>
                     <input  value="{{ old('name') }}" type="text" name="name" id="name" placeholder="Masukkan Nama" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
                 <div class="col-span-6 sm:col-span-3 my-5">
-                    <label for="email" class="block text-lg font-medium text-gray-700">Email</label>
-                    <input  value="{{ old('email') }}" type="email" name="email" id="email" placeholder="Masukkan Email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
-                <div class="col-span-6 sm:col-span-3 my-5">
                     <label for="foto" class="block text-lg font-medium text-gray-700">Foto</label>
-                    <input  value="{{ old('foto') }}" type="file" name="profile_photo_path" id="foto" placeholder="Foto" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    <input  value="{{ old('foto') }}" type="file" name="picturePath" id="foto" placeholder="Foto" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                         <label class="block text-lg font-medium text-gray-700" for="grid-last-name">
-                            Password
+                            Deskripsi
                         </label>
-                        <input value="{{ old('password') }}" name="password" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" id="grid-last-name" type="password" placeholder="User Password Confirmation">
+                        <input value="{{ old('description') }}" name="description" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="text" placeholder="Deskripsi">
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                         <label class="block text-lg font-medium text-gray-700" for="grid-last-name">
-                            Konfirmasi Password
+                            Bahan
                         </label>
-                        <input value="{{ old('password_confirmation') }}" name="password_confirmation" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" id="grid-last-name" type="password" placeholder="User Password Confirmation">
+                        <input value="{{ old('ingredients') }}" name="ingredients" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="text" placeholder="Bahan">
+                        <p class="text-gray-600 text-xs italic">Dipisahkan dengan koma, contoh: Bawang Merah, Bawang Paprika, Bawang Bombai.</p>
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                         <label class="block text-lg font-medium text-gray-700" for="grid-last-name">
-                            Alamat
+                            Harga
                         </label>
-                        <input value="{{ old('address') }}" name="address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" id="grid-last-name" type="text" placeholder="User Address">
+                        <input value="{{ old('price') }}" name="price" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="number" placeholder="Harga">
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                         <label class="block text-lg font-medium text-gray-700" for="grid-last-name">
-                            Roles
+                            Rating
                         </label>
-                        <select name="roles" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" id="grid-last-name">
-                            <option value="USER">User</option>
-                            <option value="ADMIN">Admin</option>
-                        </select>
+                        <input value="{{ old('rate') }}" name="rate" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="number", step="0.01" max="5" placeholder="Rating">
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                         <label class="block text-lg font-medium text-gray-700" for="grid-last-name">
-                            House Number
+                            Tipe
                         </label>
-                        <input value="{{ old('houseNumber') }}" name="houseNumber" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" id="grid-last-name" type="text" placeholder="User House Number">
-                    </div>
-                </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
-                        <label class="block text-lg font-medium text-gray-700" for="grid-last-name">
-                            Phone Number
-                        </label>
-                        <input value="{{ old('phoneNumber') }}" name="phoneNumber" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" id="grid-last-name" type="text" placeholder="User Phone Number">
-                    </div>
-                </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
-                        <label class="block text-lg font-medium text-gray-700" for="grid-last-name">
-                            City
-                        </label>
-                        <input value="{{ old('city') }}" name="city" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" id="grid-last-name" type="text" placeholder="User City">
+                        <input value="{{ old('type') }}" name="type" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="text" placeholder="Tipe Makanan">
+                        <p class="text-gray-600 text-xs italic">Dipisahkan dengan koma, contoh: recommended, popular, new_food</p>
                     </div>
                 </div>
                 <div class="text-right">
