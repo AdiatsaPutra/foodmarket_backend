@@ -46,9 +46,9 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Transaction $transaction)
     {
-        //
+        return view('transaction.detail', compact('transaction'));
     }
 
     /**
@@ -80,8 +80,21 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Transaction $transaction)
     {
-        //
+        $transaction->delete();
+
+        return redirect()->route('transaction.index');
+    }
+
+    public function changeStatus(Request $request, $id, $status)
+    {
+        $transaction = Transaction::findOrFail($id);
+
+        // Mengubah transaction status berdasarkan request
+        $transaction->status = $status;
+        $transaction->save();
+
+        return redirect()->route('transaction.show', $id);
     }
 }
